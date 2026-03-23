@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Santoss — Crafting digital experiences that help startups and businesses grow online." />
+  <title>Santoss — Digital Studio</title>
+
+  <!--
+    ============================================================
+    GOOGLE FONTS
+    In WordPress: move these <link> tags into functions.php and
+    enqueue them with wp_enqueue_style(), e.g.:
+
+      wp_enqueue_style(
+        'santoss-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap',
+        array(), null
+      );
+
+    Then remove these <link> tags from header.php.
+    ============================================================
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!--
+    In WordPress: enqueue via wp_enqueue_style() in functions.php:
+
+      wp_enqueue_style( 'santoss-style', get_stylesheet_uri(), array(), '1.0.0' );
+  -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!--
+  ============================================================
+  WORDPRESS CONVERSION GUIDE
+  ============================================================
+  This single file maps to these WordPress theme files:
+
+    <head> block          → header.php  (up to <body>)
+    .site-header nav      → header.php  (wp_nav_menu, the_custom_logo, wp_head)
+    Hero + content sects  → front-page.php or index.php (template parts)
+    Blog preview section  → template-parts/blog-preview.php (WP_Query / The Loop)
+    Contact section       → page-contact.php or a template part
+    .site-footer          → footer.php  (wp_footer before </body>)
+  ============================================================
+-->
+
+<body>
+
+  <!-- ============================================================
+       SITE HEADER — In WordPress: becomes header.php
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- In WordPress: replace with the_custom_logo() -->
+      <div class="site-logo">
+        <a href="#hero" aria-label="Santoss — Home">
+          Santo<span>ss</span>
+        </a>
+      </div>
+
+      <!-- In WordPress: replace <ul> with wp_nav_menu( array( 'theme_location' => 'primary' ) ) -->
+      <nav class="main-nav" id="main-navigation" aria-label="Primary navigation">
+        <ul role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Clients</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#contact" class="btn btn-primary">Get Started</a>
+        <!-- Hamburger — toggled by script.js -->
+        <button
+          class="nav-toggle"
+          aria-controls="main-navigation"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  <!-- /SITE HEADER -->
+
+  <!-- ============================================================
+       MAIN CONTENT — In WordPress: becomes front-page.php
+       wp_head() should be placed just before </head> in header.php
+       ============================================================ -->
+  <main id="main" role="main">
+
+    <!-- ============================================================
+         HERO SECTION
+         In WordPress: this could be a template part:
+           get_template_part( 'template-parts/hero' )
+         Hero content editable via ACF or theme customizer fields.
+         ============================================================ -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="container hero-content">
+
+        <span class="section-label fade-in-up">Digital Studio &amp; Agency</span>
+
+        <h1 class="fade-in-up delay-1">
+          We Build Digital<br />
+          <em>Experiences That Matter</em>
+        </h1>
+
+        <!-- Replace with your tagline -->
+        <p class="fade-in-up delay-2">
+          Santoss helps startups and ambitious businesses design and build
+          beautiful, fast, and conversion-focused digital products.
+        </p>
+
+        <div class="hero-actions fade-in-up delay-3">
+          <a href="#services" class="btn btn-secondary btn-lg">Explore Services</a>
+          <a href="#contact"  class="btn btn-outline btn-lg">Get in Touch</a>
+        </div>
+
+        <div class="hero-stats fade-in-up delay-3">
+          <!-- Replace with real stats -->
+          <div class="stat-item">
+            <strong>120+</strong>
+            <span>Projects Delivered</span>
+          </div>
+          <div class="stat-item">
+            <strong>98%</strong>
+            <span>Client Satisfaction</span>
+          </div>
+          <div class="stat-item">
+            <strong>7+</strong>
+            <span>Years of Experience</span>
+          </div>
+        </div>
+
+      </div>
+      <!-- Replace with a real hero / background image or video -->
+      <!-- <img src="images/hero-bg.jpg" alt="" class="hero-bg-image" aria-hidden="true"> -->
+    </section>
+    <!-- /HERO -->
+
+    <!-- ============================================================
+         ABOUT / FEATURES SECTION
+         In WordPress: get_template_part( 'template-parts/about' )
+         Content editable via ACF or the WordPress Customizer.
+         ============================================================ -->
+    <section class="about" id="about" aria-label="About">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Replace with about image -->
+          <!-- <img src="images/about.jpg" alt="Team at work" /> -->
+          <div class="about-image" aria-hidden="true">🎨</div>
+
+          <div class="about-text">
+            <span class="section-label">Who We Are</span>
+            <h2 class="section-title">
+              A passionate team of designers &amp; engineers
+            </h2>
+            <p>
+              We are Santoss — a full-service digital studio specialising in
+              web design, development, and brand strategy. From early-stage
+              startups to established enterprises, we turn ideas into impactful
+              digital products.
+            </p>
+
+            <div class="features-list">
+              <div class="feature-item">
+                <div class="feature-icon" aria-hidden="true">⚡</div>
+                <div>
+                  <h4>Lightning-fast delivery</h4>
+                  <p>We work in focused sprints so your product ships faster without cutting corners.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon" aria-hidden="true">🎯</div>
+                <div>
+                  <h4>Results-driven approach</h4>
+                  <p>Every decision is tied to a measurable goal — traffic, leads, or conversions.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon" aria-hidden="true">🔒</div>
+                <div>
+                  <h4>Secure &amp; scalable code</h4>
+                  <p>We follow best practices for performance, accessibility, and security from day one.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- /ABOUT -->
+
+    <!-- ============================================================
+         SERVICES SECTION
+         In WordPress: get_template_part( 'template-parts/services' )
+         Cards can be powered by a custom post type "Services" with
+         ACF fields for icon, title, excerpt, and link.
+         ============================================================ -->
+    <section class="services" id="services" aria-label="Services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title">Services built to grow your business</h2>
+          <p class="section-subtitle">
+            From concept to deployment, we cover every layer of the digital stack.
+          </p>
+        </div>
+
+        <!-- In WordPress: loop through 'services' custom post type here -->
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-card-icon" aria-hidden="true">🖥️</div>
+            <h3>Web Design &amp; UI/UX</h3>
+            <p>
+              Pixel-perfect interfaces grounded in usability research and
+              modern design principles. From wireframes to polished prototypes.
+            </p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-icon" aria-hidden="true">⚙️</div>
+            <h3>WordPress Development</h3>
+            <p>
+              Custom themes, plugins, and block-editor (Gutenberg) experiences
+              tailored to your content workflows and brand identity.
+            </p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-icon" aria-hidden="true">📱</div>
+            <h3>Mobile-first Development</h3>
+            <p>
+              Responsive web apps and PWAs that deliver native-quality
+              experiences across every device and screen size.
+            </p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-icon" aria-hidden="true">📈</div>
+            <h3>SEO &amp; Performance</h3>
+            <p>
+              Technical SEO audits, Core Web Vitals optimisation, and
+              performance tuning that improves rankings and user retention.
+            </p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-icon" aria-hidden="true">🛒</div>
+            <h3>E-commerce Solutions</h3>
+            <p>
+              WooCommerce and headless storefronts built to convert — with
+              seamless checkout flows and inventory management.
+            </p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card-icon" aria-hidden="true">🔧</div>
+            <h3>Maintenance &amp; Support</h3>
+            <p>
+              Ongoing site care plans: security updates, backups, uptime
+              monitoring, and priority support whenever you need it.
+            </p>
+            <a href="#contact" class="card-link">Learn more →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- /SERVICES -->
+
+    <!-- ============================================================
+         TESTIMONIALS SECTION
+         In WordPress: get_template_part( 'template-parts/testimonials' )
+         Use a custom post type "Testimonials" or ACF Repeater field.
+         ============================================================ -->
+    <section class="testimonials" id="testimonials" aria-label="Testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Social Proof</span>
+          <h2 class="section-title">Loved by the teams we work with</h2>
+          <p class="section-subtitle">
+            Don't just take our word for it — here's what our clients say.
+          </p>
+        </div>
+
+        <!-- In WordPress: loop through 'testimonials' CPT or ACF repeater here -->
+        <div class="testimonials-grid">
+
+          <div class="testimonial">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              "Santoss redesigned our entire platform in under eight weeks.
+              The result was a 40% uplift in conversion rate. Truly
+              exceptional work — both design and code quality are superb."
+            </blockquote>
+            <div class="testimonial-author">
+              <!-- Replace with client avatar -->
+              <!-- <img src="images/avatar-1.jpg" alt="Alex Morgan" class="author-avatar"> -->
+              <div class="author-avatar" aria-hidden="true">AM</div>
+              <div class="author-info">
+                <strong>Alex Morgan</strong>
+                <span>CEO, LaunchStack</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              "From the first call to final delivery, the communication and
+              professionalism were outstanding. Our new WordPress theme is
+              fast, clean, and easy for our editors to use."
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">SR</div>
+              <div class="author-info">
+                <strong>Sarah Reeves</strong>
+                <span>Marketing Director, NovaBrand</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>
+              "We needed a scalable WooCommerce store fast. Santoss delivered
+              a gorgeous, high-performing solution that handles our traffic
+              spikes without breaking a sweat."
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">TK</div>
+              <div class="author-info">
+                <strong>Tom Kauffman</strong>
+                <span>Founder, PeakCommerce</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- /TESTIMONIALS -->
+
+    <!-- ============================================================
+         BLOG PREVIEW SECTION
+         In WordPress: becomes template-parts/blog-preview.php
+         Replace static cards with The Loop / WP_Query, e.g.:
+
+           $args = array( 'post_type' => 'post', 'posts_per_page' => 3 );
+           $query = new WP_Query( $args );
+           while ( $query->have_posts() ) : $query->the_post();
+             // card markup using the_title(), get_the_excerpt(),
+             // get_the_date(), the_permalink(), etc.
+           endwhile;
+           wp_reset_postdata();
+         ============================================================ -->
+    <section class="blog-preview" id="blog" aria-label="Blog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Insights</span>
+          <h2 class="section-title">From the Santoss blog</h2>
+          <p class="section-subtitle">
+            Tips, tutorials, and thoughts on design, development, and digital strategy.
+          </p>
+        </div>
+
+        <!-- In WordPress: The Loop for recent posts would go here -->
+        <div class="blog-grid">
+
+          <article class="blog-card">
+            <!-- Replace with post featured image: the_post_thumbnail() -->
+            <!-- <img src="images/blog-1.jpg" alt="Blog post cover image"> -->
+            <div class="blog-card-image" aria-hidden="true">📝</div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <!-- In WordPress: the_category() -->
+                <span class="blog-category">WordPress</span>
+                <!-- In WordPress: the_date() -->
+                <span class="blog-date">Mar 12, 2025</span>
+              </div>
+              <!-- In WordPress: the_title() -->
+              <h3>How to build a custom WordPress theme from scratch in 2025</h3>
+              <!-- In WordPress: the_excerpt() -->
+              <p>A step-by-step guide covering template hierarchy, theme.json,
+              and best practices for modern theme development.</p>
+              <!-- In WordPress: the_permalink() -->
+              <a href="#blog" class="read-more">Read article →</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-image" aria-hidden="true">🎨</div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span class="blog-category">Design</span>
+                <span class="blog-date">Feb 28, 2025</span>
+              </div>
+              <h3>10 UI patterns that instantly improve conversion rates</h3>
+              <p>From micro-interactions to trust signals — practical design
+              patterns backed by real A/B test data.</p>
+              <a href="#blog" class="read-more">Read article →</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-card-image" aria-hidden="true">⚡</div>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span class="blog-category">Performance</span>
+                <span class="blog-date">Feb 10, 2025</span>
+              </div>
+              <h3>Core Web Vitals in 2025: what still matters and what doesn't</h3>
+              <p>An up-to-date breakdown of LCP, INP, and CLS — and how to
+              achieve green scores without sacrificing design.</p>
+              <a href="#blog" class="read-more">Read article →</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="blog-cta-row">
+          <!-- In WordPress: link to the blog archive page using get_post_type_archive_link() -->
+          <a href="#blog" class="btn btn-outline-dark">View all articles →</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- /BLOG PREVIEW -->
+
+    <!-- ============================================================
+         CONTACT SECTION
+         In WordPress: becomes page-contact.php or a template part.
+         Replace <form> with a contact plugin shortcode or
+         a custom form using wp_nonce_field() for security.
+         ============================================================ -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="section-title">Let's build something great together</h2>
+          <p class="section-subtitle">
+            Have a project in mind? Fill out the form and we'll get back to you within 24 hours.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <h3>Contact information</h3>
+            <p>Prefer a direct conversation? Reach out through any of the channels below.</p>
+
+            <div class="contact-details">
+              <!-- Replace with real contact details -->
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">📧</div>
+                <span>hello@santoshbharati.com.np</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">📍</div>
+                <span>Kathmandu, Nepal</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">💼</div>
+                <span>Available for freelance &amp; agency work</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- In WordPress: replace with contact form plugin shortcode or wp_nonce-secured form -->
+          <div class="contact-form">
+            <form novalidate aria-label="Contact form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">Full name <span aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="contact-name"
+                    placeholder="Jane Smith"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email address <span aria-hidden="true">*</span></label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="contact-email"
+                    placeholder="jane@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <input
+                  type="text"
+                  id="contact-subject"
+                  name="contact-subject"
+                  placeholder="e.g. New project inquiry"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="contact-message"
+                  placeholder="Tell us about your project…"
+                  required
+                ></textarea>
+              </div>
+
+              <!--
+                In WordPress: add wp_nonce_field() here for CSRF protection:
+                  <?php wp_nonce_field( 'santoss_contact_form', 'santoss_nonce' ); ?>
+              -->
+
+              <button type="submit" class="btn btn-primary btn-full btn-lg">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- /CONTACT -->
+
+  </main>
+  <!-- /MAIN CONTENT -->
+
+  <!-- ============================================================
+       SITE FOOTER — In WordPress: becomes footer.php
+       wp_footer() must be called just before </body>
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <!-- In WordPress: replace with the_custom_logo() -->
+          <div class="site-logo">
+            <a href="#hero" aria-label="Santoss — Home">Santo<span>ss</span></a>
+          </div>
+          <p>
+            A digital studio crafting beautiful, fast, and purposeful web
+            experiences for startups and businesses worldwide.
+          </p>
+          <!-- In WordPress: social links from theme options or ACF global fields -->
+          <nav class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Twitter / X">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">
+              <!-- Replace text with an SVG icon -->
+              ⌨
+            </a>
+            <a href="#" class="social-link" aria-label="Dribbble">🏀</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <!-- In WordPress: wp_nav_menu( array( 'theme_location' => 'footer-services' ) ) -->
+          <ul>
+            <li><a href="#services">Web Design</a></li>
+            <li><a href="#services">WordPress Dev</a></li>
+            <li><a href="#services">E-commerce</a></li>
+            <li><a href="#services">SEO &amp; Performance</a></li>
+            <li><a href="#services">Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <!-- In WordPress: wp_nav_menu( array( 'theme_location' => 'footer-company' ) ) -->
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#testimonials">Case Studies</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#blog">Tutorials</a></li>
+            <li><a href="#blog">Free Templates</a></li>
+            <li><a href="#blog">Newsletter</a></li>
+            <li><a href="#contact">Support</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <!-- In WordPress: use bloginfo('name') and date('Y') for dynamic values -->
+        <p>&copy; 2025 Santoss. All rights reserved.</p>
+        <!-- In WordPress: wp_nav_menu( array( 'theme_location' => 'footer-legal' ) ) -->
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+  <!-- /SITE FOOTER -->
+
+  <!--
+    In WordPress: wp_footer() must be called here in footer.php, just before </body>:
+      <?php wp_footer(); ?>
+
+    This outputs enqueued scripts, the admin bar, and other hooks.
+  -->
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+<!--
+  ============================================================
+  CUSTOMISATION QUICK REFERENCE
+  ============================================================
+
+  COLORS
+  ------
+  Open style.css and edit the :root block at the very top.
+  Change any --primary-color, --secondary-color, --accent-color,
+  --bg-color, or --text-color values to retheme the entire site instantly.
+  Example: --primary-color: #7c3aed; (purple)
+
+  FONTS
+  -----
+  1. In index.html, replace the Google Fonts <link> href with your
+     chosen font URL from https://fonts.google.com/
+  2. In style.css :root, update --font-heading and --font-body to
+     match the new font family names.
+
+  TEXT CONTENT
+  ------------
+  Each section is clearly labelled with an HTML comment.
+  Search for the relevant section (e.g. "HERO SECTION") and update
+  the visible text. Placeholder text is easy to identify.
+
+  IMAGES
+  ------
+  Search for "Replace with" comments in index.html.
+  Uncomment the <img> tags and point the src to your image files.
+  E.g., <img src="images/hero-bg.jpg" alt="Hero background" />
+
+  ICONS
+  -----
+  Emoji are used as icon placeholders. Replace them with:
+  - An SVG icon library (e.g., Heroicons, Phosphor)
+  - A font icon set (e.g., Font Awesome via CDN)
+  - Custom SVGs inlined or as <img> tags
+
+  ============================================================
+  CONVERTING TO A WORDPRESS THEME
+  ============================================================
+
+  1. Create a new folder: wp-content/themes/santoss/
+
+  2. Copy style.css into it (the theme header comment block at the
+     top is already formatted for WordPress).
+
+  3. Split index.html:
+     • Everything from <!DOCTYPE html> through </header> → header.php
+       - Add <?php wp_head(); ?> just before </head>
+       - Replace logo with <?php the_custom_logo(); ?>
+       - Replace <ul> in nav with <?php wp_nav_menu(…); ?>
+     • The <main> content sections → front-page.php (or index.php)
+       - Wrap each section with get_template_part() calls for modularity
+     • Blog preview section → use WP_Query inside template part
+     • From </main> to end of <footer> → footer.php
+       - Add <?php wp_footer(); ?> just before </body>
+
+  4. Create functions.php and add:
+     - add_theme_support() for title-tag, post-thumbnails, etc.
+     - register_nav_menus() for primary, footer menus
+     - wp_enqueue_style() for style.css
+     - wp_enqueue_script() for script.js
+
+  5. Create index.php (required) — it can simply call:
+       <?php get_header(); get_footer(); ?>
+     WordPress will use front-page.php as the home template if it exists.
+
+  ============================================================
+-->

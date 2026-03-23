@@ -1,0 +1,1090 @@
+/*
+Theme Name: Santoss
+Theme URI: https://santoshbharati.com.np/
+Author: Santosh
+Description: A modern, responsive, and easily editable WordPress-ready template for portfolios and agencies.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: santoss
+*/
+
+/* ============================================================
+   TABLE OF CONTENTS
+   1. CSS Variables (Color & Typography System)
+   2. Reset & Base
+   3. Typography
+   4. Layout Utilities
+   5. Site Header & Navigation
+   6. Hero Section
+   7. About / Features Section
+   8. Services Section
+   9. Testimonials Section
+   10. Blog Preview Section
+   11. Contact Section
+   12. Site Footer
+   13. Buttons & Forms
+   14. Animations & Transitions
+   15. Media Queries (Responsive)
+   ============================================================ */
+
+/* ============================================================
+   1. CSS Variables — edit these to retheme the entire site
+   ============================================================ */
+:root {
+  /* Colors */
+  --primary-color:   #0a66c2;   /* Main brand blue */
+  --secondary-color: #05c2a0;   /* Teal accent */
+  --accent-color:    #f59e0b;   /* Warm amber highlight */
+  --bg-color:        #f8fafc;   /* Page background */
+  --surface-color:   #ffffff;   /* Card / section background */
+  --text-color:      #1e293b;   /* Body text */
+  --muted-color:     #64748b;   /* Subtle / secondary text */
+  --border-color:    #e2e8f0;   /* Borders and dividers */
+  --dark-bg:         #0f172a;   /* Dark sections (footer, hero overlay) */
+  --dark-text:       #f1f5f9;   /* Text on dark backgrounds */
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Spacing */
+  --section-padding: 5rem 1.25rem;
+  --container-width: 1160px;
+  --radius:          0.5rem;
+  --radius-lg:       1rem;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+
+  /* Transition */
+  --transition: 0.25s ease;
+}
+
+/* ============================================================
+   2. Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   3. Typography
+   ============================================================ */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+p {
+  color: var(--muted-color);
+  max-width: 68ch;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   4. Layout Utilities
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header p {
+  margin-inline: auto;
+}
+
+/* ============================================================
+   5. Site Header & Navigation
+   ============================================================ */
+
+/* In WordPress: this entire block becomes header.php */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: box-shadow var(--transition);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+/* In WordPress: replace .site-logo anchor with the_custom_logo() */
+.site-logo a {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.site-logo span {
+  color: var(--primary-color);
+}
+
+/* In WordPress: replace .main-nav ul with wp_nav_menu() */
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main-nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary-color);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Hamburger (mobile) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-color);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav-toggle.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   6. Hero Section
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 8rem 1.25rem 5rem;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #1e3a5f 100%);
+  color: var(--dark-text);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(10, 102, 194, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(5, 194, 160, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+
+.hero .section-label {
+  color: var(--secondary-color);
+}
+
+.hero h1 {
+  color: var(--dark-text);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--secondary-color);
+}
+
+.hero p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  margin-bottom: 2.25rem;
+  max-width: 54ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.hero-stats .stat-item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--dark-text);
+}
+
+.hero-stats .stat-item span {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ============================================================
+   7. About / Features Section
+   ============================================================ */
+.about {
+  padding: var(--section-padding);
+  background: var(--surface-color);
+}
+
+.about-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(10, 102, 194, 0.15);
+  border-radius: var(--radius-lg);
+}
+
+.features-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: #eff6ff;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.feature-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   8. Services Section
+   ============================================================ */
+.services {
+  padding: var(--section-padding);
+  background: var(--bg-color);
+}
+
+.services-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.service-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  cursor: default;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.service-card-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.service-card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  font-size: 0.93rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap var(--transition);
+}
+
+.card-link:hover {
+  gap: 0.6rem;
+  color: var(--primary-color);
+}
+
+/* ============================================================
+   9. Testimonials Section
+   ============================================================ */
+.testimonials {
+  padding: var(--section-padding);
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.testimonials .section-label {
+  color: var(--secondary-color);
+}
+
+.testimonials .section-title {
+  color: var(--dark-text);
+}
+
+.testimonials .section-subtitle {
+  color: #94a3b8;
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.testimonial {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.testimonial:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(10, 102, 194, 0.4);
+}
+
+.testimonial-stars {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.testimonial blockquote {
+  font-size: 0.97rem;
+  color: #cbd5e1;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.author-info strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--dark-text);
+}
+
+.author-info span {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ============================================================
+   10. Blog Preview Section
+   ============================================================ */
+
+/* In WordPress: this section maps to a loop using WP_Query or get_posts() */
+
+.blog-preview {
+  padding: var(--section-padding);
+  background: var(--surface-color);
+}
+
+.blog-grid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.blog-card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-color);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.blog-card-image {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  overflow: hidden;
+}
+
+.blog-card-body {
+  padding: 1.5rem;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.blog-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: #eff6ff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+}
+
+.blog-date {
+  font-size: 0.8rem;
+  color: var(--muted-color);
+}
+
+.blog-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-color);
+  transition: color var(--transition);
+}
+
+.blog-card:hover h3 {
+  color: var(--primary-color);
+}
+
+.blog-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.read-more {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: gap var(--transition);
+}
+
+.read-more:hover {
+  gap: 0.6rem;
+}
+
+.blog-cta-row {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+/* ============================================================
+   11. Contact Section
+   ============================================================ */
+.contact {
+  padding: var(--section-padding);
+  background: var(--bg-color);
+}
+
+.contact-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-info h3 {
+  margin-bottom: 0.75rem;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--muted-color);
+}
+
+.contact-item-icon {
+  width: 40px;
+  height: 40px;
+  background: #eff6ff;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* In WordPress: replace this form with a contact form plugin shortcode or a custom form with wp_nonce */
+.contact-form {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-color);
+  background: var(--bg-color);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ============================================================
+   12. Site Footer
+   ============================================================ */
+
+/* In WordPress: this entire block becomes footer.php */
+
+.site-footer {
+  background: var(--dark-bg);
+  color: #94a3b8;
+  padding: 4rem 1.25rem 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.footer-brand .site-logo a {
+  color: var(--dark-text);
+}
+
+.footer-brand p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  max-width: 28ch;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* In WordPress: replace these with social links from theme options / ACF */
+.social-link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.social-link:hover {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.footer-col h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.1rem;
+}
+
+/* In WordPress: replace footer nav lists with wp_nav_menu() for footer menus */
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-col ul a {
+  font-size: 0.9rem;
+  color: #64748b;
+  transition: color var(--transition);
+}
+
+.footer-col ul a:hover {
+  color: var(--secondary-color);
+}
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #475569;
+  margin: 0;
+}
+
+/* In WordPress: replace footer links with wp_nav_menu() for the legal menu */
+.footer-legal {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-legal a {
+  font-size: 0.85rem;
+  color: #475569;
+  transition: color var(--transition);
+}
+
+.footer-legal a:hover {
+  color: var(--secondary-color);
+}
+
+/* ============================================================
+   13. Buttons & Forms
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition),
+              border-color var(--transition), transform var(--transition),
+              box-shadow var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background: #0850a0;
+  border-color: #0850a0;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(10, 102, 194, 0.35);
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background: #04a989;
+  border-color: #04a989;
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--dark-text);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.6);
+  color: var(--dark-text);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-dark:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-lg {
+  padding: 0.9rem 2.1rem;
+  font-size: 1rem;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ============================================================
+   14. Animations & Transitions
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.55s ease both;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.22s; }
+.delay-3 { animation-delay: 0.34s; }
+
+/* ============================================================
+   15. Media Queries (Mobile-first responsive)
+   ============================================================ */
+
+/* ---- Small (< 480px) default styles are above ---- */
+
+/* ---- Tablet (≥ 640px) ---- */
+@media (min-width: 640px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---- Laptop (≥ 768px) ---- */
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+/* ---- Desktop (≥ 1024px) ---- */
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+
+/* ---- Large (≥ 1280px) ---- */
+@media (min-width: 1280px) {
+  :root {
+    --section-padding: 6.5rem 1.25rem;
+  }
+}
+
+/* ---- Mobile nav (≤ 767px) ---- */
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .header-cta .btn {
+    display: none;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.25rem 1.5rem;
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .main-nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.6rem 0;
+    font-size: 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+}
